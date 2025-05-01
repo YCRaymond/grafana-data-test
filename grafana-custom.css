@@ -42,6 +42,13 @@ text,
   font-size: 17px !important;
 }
 
+/* 圖表旁邊數據值與標籤 */
+.panel-container .panel-title + .panel-content,
+.panel-container .panel-title + .panel-content .graph-legend .legend-series-label,
+.panel-container .panel-title + .panel-content .graph-legend .legend-series-item__label {
+  font-size: 18px !important;
+}
+
 /* Tooltip 樣式 */
 .tooltip, 
 .graph-tooltip {
@@ -55,4 +62,11 @@ text,
   font-size: 18px !important;
   font-weight: 600 !important;
   color: #111 !important;
+}
+
+/* 改進圖表旁邊的數據標籤字體 */
+.graph-legend .legend-series-item__label {
+  font-size: 18px !important;
+  color: #333 !important;
+  font-weight: 500 !important;
 }
