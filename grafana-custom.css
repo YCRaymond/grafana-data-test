@@ -1,43 +1,58 @@
-
-/* 通用字體設定 */
-body, .panel-title, .panel-content, .legend, .axis, text {
+/* 通用字體與大小 */
+body, 
+.panel-title, 
+.panel-content, 
+.legend, 
+.axis, 
+text, 
+.graph-legend, 
+.panel-container, 
+.panel-container .panel-content {
   font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif !important;
-  font-size: 16px !important;
-  color: #333 !important;
-}
-
-/* 面板標題加大加粗 */
-.panel-title {
   font-size: 20px !important;
-  font-weight: 700 !important;
-}
-
-/* 圖表區塊通用字體大小 */
-.panel-content {
-  font-size: 16px !important;
-}
-
-/* 表格內文字 */
-.table-panel-table {
-  font-size: 16px !important;
-}
-
-/* 圓餅圖的標籤 */
-.pie-chart-legend__item__value,
-.pie-chart-legend__item__label {
-  font-size: 16px !important;
-}
-
-/* 台北儀表板風格：更清楚的 legend */
-.legend-series-label {
-  font-size: 16px !important;
-  font-weight: 500 !important;
   color: #222 !important;
 }
 
+/* 面板標題 */
+.panel-title {
+  font-size: 22px !important;
+  font-weight: 700 !important;
+}
+
+/* 表格內文字 */
+.table-panel-table,
+.table-panel-table td,
+.table-panel-table th {
+  font-size: 18px !important;
+}
+
+/* 圓餅圖標籤 */
+.pie-chart-legend__item__value,
+.pie-chart-legend__item__label {
+  font-size: 18px !important;
+}
+
+/* Time Series 圖表數據文字（Y軸刻度、Tooltip、Legend） */
+.axis text,
+.tick text,
+.graph-legend .legend-series-label,
+.graph-tooltip,
+.graph-tooltip .graph-tooltip__value,
+.graph-tooltip .graph-tooltip__series-name {
+  font-size: 17px !important;
+}
+
 /* Tooltip 樣式 */
-.tooltip, .graph-tooltip {
-  font-size: 15px !important;
-  background-color: #fefefe !important;
-  color: #000 !important;
+.tooltip, 
+.graph-tooltip {
+  font-size: 17px !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Legend 文字 */
+.legend-series-label {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #111 !important;
 }
