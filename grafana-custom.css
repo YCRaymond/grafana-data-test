@@ -1,17 +1,18 @@
-/* 通用字體設定 */
-body, .panel-title, .panel-content, .legend, .axis, text {
+/* 全站字體與基礎設定 */
+body, .panel-title, .panel-content, .legend, .axis, text, .table-panel-table {
   font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif !important;
   font-size: 18px !important;
   color: #333 !important;
+  line-height: 1.6 !important;
 }
 
 /* 面板標題加大加粗 */
 .panel-title {
-  font-size: 22px !important;
+  font-size: 24px !important;
   font-weight: 700 !important;
 }
 
-/* 圖表區塊通用字體大小 */
+/* 面板內容區塊（圖表區）文字大小 */
 .panel-content {
   font-size: 18px !important;
 }
@@ -21,7 +22,7 @@ body, .panel-title, .panel-content, .legend, .axis, text {
   font-size: 18px !important;
 }
 
-/* 圓餅圖的標籤 */
+/* 圓餅圖標籤 */
 .pie-chart-legend__item__value,
 .pie-chart-legend__item__label {
   font-size: 18px !important;
@@ -34,31 +35,24 @@ body, .panel-title, .panel-content, .legend, .axis, text {
   color: #000 !important;
 }
 
-/* 圖例 Placement 區整體放大（Time series、Bar chart 等皆適用） */
+/* 整個 Legend 區域放大（適用所有圖表） */
+.legend,
 .graph-legend,
-.graph-legend .legend-series,
-.graph-legend .legend-series-label,
-.graph-legend .legend-series-item__label,
-.graph-legend .legend-series-item__value,
-.graph-legend .legend-icon {
-  font-size: 18px !important;
+.legend-series,
+.legend-series-label,
+.legend-series-item__label,
+.legend-series-item__value,
+.legend-icon {
+  font-size: 20px !important;
   line-height: 1.8 !important;
-  padding: 6px !important;
+  padding: 6px 10px !important;
+  font-weight: 500 !important;
+  color: #222 !important;
 }
 
-/* 圖例中的顏色方塊放大 */
-.graph-legend .legend-icon {
-  width: 18px !important;
-  height: 18px !important;
+/* 顏色小方塊放大 */
+.legend-icon {
+  width: 20px !important;
+  height: 20px !important;
   margin-right: 8px !important;
-}
-
-/* 若圖例位於 panel-content 內部也一併放大 */
-.panel-content .graph-legend {
-  font-size: 18px !important;
-}
-
-/* 放大後的圖例項目間距 */
-.graph-legend .legend-series {
-  margin-bottom: 8px !important;
 }
