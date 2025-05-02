@@ -1,58 +1,77 @@
-/* 全站字體與基礎設定 */
-body, .panel-title, .panel-content, .legend, .axis, text, .table-panel-table {
+/* 通用字體與大小 */ 
+body, 
+.panel-title, 
+.panel-content, 
+.legend, 
+.axis, 
+text, 
+.graph-legend, 
+.panel-container, 
+.panel-container .panel-content {
   font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif !important;
   font-size: 18px !important;
-  color: #ffffff !important;
-  line-height: 1.6 !important;
+  color: #fff !important;
 }
 
-/* 面板標題加大加粗 */
+/* 面板標題 */
 .panel-title {
-  font-size: 24px !important;
+  font-size: 22px !important;
   font-weight: 700 !important;
-}
-
-/* 面板內容區塊（圖表區）文字大小 */
-.panel-content {
-  font-size: 18px !important;
+  color: #fff !important;
 }
 
 /* 表格內文字 */
-.table-panel-table {
+.table-panel-table,
+.table-panel-table td,
+.table-panel-table th {
   font-size: 18px !important;
+  color: #fff !important;
 }
 
 /* 圓餅圖標籤 */
 .pie-chart-legend__item__value,
 .pie-chart-legend__item__label {
   font-size: 18px !important;
+  color: #fff !important;
+}
+
+/* Time Series 圖表數據文字（Y軸刻度、Tooltip、Legend） */
+.axis text,
+.tick text,
+.graph-legend .legend-series-label,
+.graph-tooltip,
+.graph-tooltip .graph-tooltip__value,
+.graph-tooltip .graph-tooltip__series-name {
+  font-size: 17px !important;
+  color: #fff !important;
+}
+
+/* 圖表旁邊數據值與標籤 */
+.panel-container .panel-title + .panel-content,
+.panel-container .panel-title + .panel-content .graph-legend .legend-series-label,
+.panel-container .panel-title + .panel-content .graph-legend .legend-series-item__label {
+  font-size: 18px !important;
+  color: #fff !important;
 }
 
 /* Tooltip 樣式 */
-.tooltip, .graph-tooltip {
+.tooltip, 
+.graph-tooltip {
   font-size: 17px !important;
-  background-color: #fefefe !important;
-  color: #000 !important;
+  background-color: #222 !important; /* 保持深底方便白字閱讀 */
+  color: #fff !important;
 }
 
-/* 整個 Legend 區域放大（適用所有圖表） */
-.legend,
-.graph-legend,
-.legend-series,
-.legend-series-label,
-.legend-series-item__label,
-.legend-series-item__value,
-.legend-icon {
-  font-size: 20px !important;
-  line-height: 1.8 !important;
-  padding: 6px 10px !important;
+/* Legend 文字 */
+.legend-series-label {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+}
+
+/* 改進圖表旁邊的數據標籤字體 */
+.graph-legend .legend-series-item__label {
+  font-size: 18px !important;
+  color: #fff !important;
   font-weight: 500 !important;
-  color: #222 !important;
-}
-
-/* 顏色小方塊放大 */
-.legend-icon {
-  width: 20px !important;
-  height: 20px !important;
-  margin-right: 8px !important;
 }
