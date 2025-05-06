@@ -1,12 +1,13 @@
-/* 通用字體與大小 */ 
-body, 
-.panel-title, 
-.panel-content, 
-.legend, 
-.axis, 
-text, 
-.graph-legend, 
-.panel-container, 
+
+/* 通用字體與大小 */
+body,
+.panel-title,
+.panel-content,
+.legend,
+.axis,
+text,
+.graph-legend,
+.panel-container,
 .panel-container .panel-content {
   font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif !important;
   font-size: 18px !important;
@@ -55,10 +56,10 @@ text,
 }
 
 /* Tooltip 樣式 */
-.tooltip, 
+.tooltip,
 .graph-tooltip {
   font-size: 17px !important;
-  background-color: #222 !important; /* 保持深底方便白字閱讀 */
+  background-color: #222 !important;
   color: #fff !important;
 }
 
@@ -74,4 +75,16 @@ text,
   font-size: 18px !important;
   color: #fff !important;
   font-weight: 500 !important;
+}
+
+/* 增加 Stat/Value 顯示字體 */
+.panel-content .value-panel,
+.panel-content .value-panel .value,
+.panel-content .stat-panel-value,
+.panel-content .stat-panel-value .value,
+.panel-content .panel-value,
+.panel-content .panel-value .value {
+  font-size: 28px !important;
+  font-weight: bold !important;
+  color: #fff !important;
 }
