@@ -1,102 +1,87 @@
-/* ========== 全站字體統一 ========== */
-body,
-.panel-title,
-.panel-content,
-.legend,
-.axis,
-text,
-.graph-legend,
+/* ========= 全站背景與字體 ========= */
+body {
+  background-color: #0f1c2e !important; /* 深藍灰底 */
+  font-family: 'Quicksand', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif !important;
+  color: #f0f0f0 !important;
+}
+
+/* ========= 面板容器背景與標題 ========= */
 .panel-container,
-.panel-container .panel-content {
-  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif !important;
-  font-size: 18px !important;
-  color: #fb0303 !important;
+.panel-content {
+  background-color: #1c2a3a !important; /* 面板內部色 */
+  border-radius: 8px !important;
+  padding: 10px;
 }
 
-/* ========== 面板樣式強化 ========== */
-.panel-container {
-  background-color: rgba(0, 0, 0, 0.4) !important;
-  border-radius: 10px !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6) !important;
-  padding: 10px !important;
-  margin: 5px !important;
-}
-
-/* 面板標題 */
 .panel-title {
   font-size: 24px !important;
-  font-weight: 800 !important;
-  color: #00d2ff !important;
-  letter-spacing: 1px !important;
+  font-weight: 700 !important;
+  color: #00e5ff !important;
+  letter-spacing: 0.5px;
 }
 
-/* ========== 數值/Stat/Value 顯示優化 ========== */
+/* ========= Value / Stat 模組（側邊顯示重點數據）========= */
 .panel-content .value-panel,
 .panel-content .value-panel .value,
 .panel-content .stat-panel-value,
 .panel-content .stat-panel-value .value,
 .panel-content .panel-value,
 .panel-content .panel-value .value {
-  font-size: 42px !important;
+  font-size: 54px !important;
   font-weight: 900 !important;
   color: #00ffc8 !important;
-  text-shadow: 0 0 3px rgba(0, 255, 255, 0.4) !important;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
 }
 
-/* ========== 表格/Table 優化 ========== */
+.panel-content .value-panel .panel-title,
+.panel-content .stat-panel-value .panel-title,
+.panel-content .panel-value .panel-title {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  color: #ccc !important;
+}
+
+/* ========= 表格字體 ========= */
 .table-panel-table,
 .table-panel-table td,
 .table-panel-table th {
-  font-size: 18px !important;
-  color: #fff !important;
+  font-size: 17px !important;
+  color: #eee !important;
+  font-weight: 500;
 }
 
-/* ========== 圓餅圖 Pie Chart 標籤 ========== */
+/* ========= 圓餅圖圖例文字（稍小一點）========= */
 .pie-chart-legend__item__value,
 .pie-chart-legend__item__label {
-  font-size: 20px !important;
-  font-weight: 600 !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
   color: #fff !important;
 }
 
-/* ========== 時間序列 / 長條圖 / 折線圖等圖表優化 ========== */
+/* ========= Tooltip 樣式 ========= */
+.tooltip,
+.graph-tooltip {
+  font-size: 16px !important;
+  background-color: rgba(0, 0, 0, 0.85) !important;
+  color: #fff !important;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+/* ========= 時間序列圖的 Y 軸、圖例、刻度文字 ========= */
 .axis text,
 .tick text,
 .graph-legend .legend-series-label,
-.graph-tooltip,
 .graph-tooltip .graph-tooltip__value,
 .graph-tooltip .graph-tooltip__series-name {
-  font-size: 18px !important;
-  color: #fff !important;
-  font-weight: 500 !important;
+  font-size: 16px !important;
+  color: #f0f0f0 !important;
 }
 
-/* Y軸與標線 */
-.axis path,
-.axis line {
-  stroke: #888 !important;
-}
-
-/* 資料點 tooltip */
-.tooltip,
-.graph-tooltip {
-  font-size: 18px !important;
-  background-color: #222 !important;
-  color: #fff !important;
-  border-radius: 6px !important;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4) !important;
-  padding: 6px 12px !important;
-}
-
-/* 圖表 legend */
-.legend-series-label {
-  font-size: 18px !important;
-  font-weight: 600 !important;
-  color: #fff !important;
-}
-
+/* ========= Legend 說明（右側或下方圖表說明） ========= */
+.legend-series-label,
 .graph-legend .legend-series-item__label {
-  font-size: 18px !important;
-  color: #fff !important;
+  font-size: 16px !important;
+  color: #ccc !important;
   font-weight: 500 !important;
 }
