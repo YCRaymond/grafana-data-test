@@ -3,7 +3,7 @@ body {
   background: linear-gradient(135deg, #0f1c2e 0%, #1a2940 100%) !important;
   font-family: 'Poppins', 'Quicksand', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif !important;
   color: #f0f0f0 !important;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 
 /* ========= 漸變色彩定義 ========= */
@@ -11,6 +11,19 @@ body {
   --primary-gradient: linear-gradient(45deg, #00e5ff, #00ffc8);
   --secondary-gradient: linear-gradient(45deg, #7e57c2, #5c6bc0);
   --accent-gradient: linear-gradient(45deg, #ff4081, #ff9100);
+  --hover-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========= 全局動畫效果 ========= */
+.dashboard-container {
+  gap: 20px !important;
+  padding: 20px !important;
+  transition: var(--hover-transition);
+}
+
+.dashboard-container:hover > div:not(:hover) {
+  opacity: 0.75;
+  transform: scale(0.98);
 }
 
 /* ========= 面板容器背景與標題 ========= */
@@ -18,11 +31,13 @@ body {
   background: linear-gradient(180deg, #1c2a3a, #1a2735) !important;
   border-radius: 16px !important;
   padding: 18px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--hover-transition);
   position: relative;
   overflow: hidden;
+  transform-origin: center;
+  will-change: transform, opacity, box-shadow;
 }
 
 .panel-container::before {
@@ -33,12 +48,13 @@ body {
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: 0.5s;
+  transition: 0.6s;
 }
 
 .panel-container:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3) !important;
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25) !important;
+  z-index: 1;
 }
 
 .panel-container:hover::before {
@@ -49,6 +65,7 @@ body {
   background-color: transparent !important;
   border-radius: 12px !important;
   padding: 15px;
+  transition: var(--hover-transition);
 }
 
 .panel-title {
@@ -61,24 +78,49 @@ body {
   -webkit-text-fill-color: transparent;
   letter-spacing: 0.5px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
+  transition: var(--hover-transition);
+  transform-origin: left;
 }
 
-.panel-title:hover {
-  transform: translateX(5px);
+.panel-container:hover .panel-title {
+  transform: translateX(5px) scale(1.05);
   letter-spacing: 1px;
 }
 
-/* ========= Value / Stat 模組（側邊顯示重點數據）========= */
+/* ========= Value / Stat 模組 ========= */
 .panel-content .value-panel,
 .panel-content .stat-panel-value,
 .panel-content .panel-value {
   position: relative;
-  padding: 15px;
+  padding: 20px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
-  transition: all 0.4s ease;
+  transition: var(--hover-transition);
+  transform-origin: center;
+}
+
+.panel-content .value-panel::after,
+.panel-content .stat-panel-value::after,
+.panel-content .panel-value::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 1px;
+  background: var(--primary-gradient);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: var(--hover-transition);
+}
+
+.panel-content .value-panel:hover::after,
+.panel-content .stat-panel-value:hover::after,
+.panel-content .panel-value:hover::after {
+  opacity: 1;
 }
 
 .panel-content .value-panel .value,
@@ -92,14 +134,14 @@ body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--hover-transition);
 }
 
 .panel-content .value-panel:hover,
 .panel-content .stat-panel-value:hover,
 .panel-content .panel-value:hover {
   background: rgba(255, 255, 255, 0.08);
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
 .panel-content .value-panel:hover .value,
@@ -107,18 +149,9 @@ body {
 .panel-content .panel-value:hover .value {
   transform: scale(1.05);
   letter-spacing: 1px;
-}
-
-.panel-content .value-panel .panel-title,
-.panel-content .stat-panel-value .panel-title,
-.panel-content .panel-value .panel-title {
-  font-family: 'DM Sans', 'Poppins', sans-serif !important;
-  font-size: 20px !important;
-  font-weight: 600 !important;
-  color: rgba(255, 255, 255, 0.7) !important;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 /* ========= 表格樣式優化 ========= */
@@ -135,26 +168,32 @@ body {
   color: #eee !important;
   padding: 14px 18px !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-  transition: all 0.3s ease;
+  transition: var(--hover-transition);
 }
 
 .table-panel-table th {
-  background: linear-gradient(180deg, rgba(0, 229, 255, 0.1), rgba(0, 255, 200, 0.1)) !important;
+  background: linear-gradient(180deg, rgba(0, 229, 255, 0.08), rgba(0, 255, 200, 0.08)) !important;
   font-weight: 600 !important;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
+.table-panel-table tr {
+  transition: var(--hover-transition);
+}
+
 .table-panel-table tr:hover td {
   background-color: rgba(255, 255, 255, 0.08) !important;
   transform: scale(1.01);
+  padding-left: 25px !important;
 }
 
-/* ========= 圓餅圖圖例文字優化 ========= */
+/* ========= 圓餅圖圖例優化 ========= */
 .pie-chart-legend__item {
-  transition: all 0.3s ease;
+  transition: var(--hover-transition);
   padding: 8px 12px;
   border-radius: 6px;
+  cursor: pointer;
 }
 
 .pie-chart-legend__item__value,
@@ -162,13 +201,17 @@ body {
   font-family: 'DM Sans', 'Inter', sans-serif !important;
   font-size: 15px !important;
   font-weight: 500 !important;
-  color: #fff !important;
-  transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.8) !important;
+  transition: var(--hover-transition);
 }
 
 .pie-chart-legend__item:hover {
   background: rgba(255, 255, 255, 0.08);
   transform: translateX(8px);
+}
+
+.pie-chart-legend__item:hover * {
+  color: #fff !important;
 }
 
 /* ========= Tooltip 樣式優化 ========= */
@@ -183,17 +226,17 @@ body {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  animation: tooltipFade 0.3s ease;
+  animation: tooltipFade 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes tooltipFade {
   from {
     opacity: 0;
-    transform: translateY(5px);
+    transform: translateY(5px) scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -202,18 +245,18 @@ body {
 .tick text {
   font-family: 'IBM Plex Mono', 'Roboto Mono', monospace !important;
   font-size: 16px !important;
-  color: rgba(255, 255, 255, 0.7) !important;
-  transition: color 0.3s ease;
+  color: rgba(255, 255, 255, 0.6) !important;
+  transition: var(--hover-transition);
 }
 
 .axis line,
 .axis path {
-  stroke: rgba(255, 255, 255, 0.15) !important;
+  stroke: rgba(255, 255, 255, 0.1) !important;
   stroke-width: 1px;
 }
 
 .graph-panel__chart {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--hover-transition);
 }
 
 .graph-panel__chart:hover {
@@ -221,20 +264,29 @@ body {
   filter: brightness(1.1);
 }
 
+.graph-panel__chart:hover .axis text {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
 /* ========= Legend 說明優化 ========= */
+.legend-section {
+  transition: var(--hover-transition);
+}
+
 .legend-series-label,
 .graph-legend .legend-series-item__label {
   font-family: 'DM Sans', 'Inter', sans-serif !important;
   font-size: 16px !important;
   color: rgba(255, 255, 255, 0.7) !important;
   font-weight: 500 !important;
-  transition: all 0.3s ease;
+  transition: var(--hover-transition);
 }
 
 .legend-series-item {
   padding: 6px 10px;
   border-radius: 6px;
-  transition: all 0.3s ease;
+  transition: var(--hover-transition);
+  cursor: pointer;
 }
 
 .legend-series-item:hover {
@@ -248,23 +300,29 @@ body {
 
 /* ========= 滾動條美化 ========= */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, rgba(0, 229, 255, 0.3), rgba(0, 255, 200, 0.3));
-  border-radius: 5px;
-  transition: all 0.3s ease;
+  background: linear-gradient(45deg, 
+    rgba(0, 229, 255, 0.1),
+    rgba(0, 255, 200, 0.1)
+  );
+  border-radius: 4px;
+  transition: var(--hover-transition);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, rgba(0, 229, 255, 0.5), rgba(0, 255, 200, 0.5));
+  background: linear-gradient(45deg, 
+    rgba(0, 229, 255, 0.2),
+    rgba(0, 255, 200, 0.2)
+  );
 }
 
 /* ========= 響應式設計優化 ========= */
@@ -284,6 +342,11 @@ body {
     font-size: 15px !important;
     padding: 10px 12px !important;
   }
+
+  .dashboard-container {
+    gap: 15px !important;
+    padding: 15px !important;
+  }
 }
 
 /* ========= Loading 動畫優化 ========= */
@@ -302,11 +365,11 @@ body {
   height: 100%;
   background: linear-gradient(90deg, 
     transparent,
-    rgba(0, 229, 255, 0.2),
-    rgba(0, 255, 200, 0.2),
+    rgba(0, 229, 255, 0.1),
+    rgba(0, 255, 200, 0.1),
     transparent
   ) !important;
-  animation: loading 1.5s infinite;
+  animation: loading 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 @keyframes loading {
@@ -326,7 +389,8 @@ body {
   border-radius: 8px;
   padding: 12px 16px;
   margin: 8px 0;
-  transition: all 0.3s ease;
+  transition: var(--hover-transition);
+  transform-origin: left;
 }
 
 .alert-error {
@@ -344,18 +408,30 @@ body {
   border-left: 4px solid #66bb6a;
 }
 
+.alert-error:hover,
+.alert-warning:hover,
+.alert-success:hover {
+  transform: translateX(5px) scale(1.01);
+}
+
 /* ========= 按鈕和控制項優化 ========= */
 .btn,
 .gf-form-input,
 .gf-form-select-box {
   font-family: 'Inter', 'DM Sans', sans-serif !important;
   border-radius: 8px !important;
-  transition: all 0.3s ease !important;
+  transition: var(--hover-transition) !important;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.btn:active {
+  transform: translateY(0);
 }
 
 .gf-form-input:focus,
