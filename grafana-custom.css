@@ -3,14 +3,22 @@ body {
   background-color: #0f1c2e !important; /* 深藍灰底 */
   font-family: 'Quicksand', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif !important;
   color: #f0f0f0 !important;
+  transition: background-color 0.3s ease;
 }
 
 /* ========= 面板容器背景與標題 ========= */
 .panel-container,
 .panel-content {
   background-color: #1c2a3a !important; /* 面板內部色 */
-  border-radius: 8px !important;
-  padding: 10px;
+  border-radius: 12px !important;
+  padding: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+  transition: all 0.3s ease;
+}
+
+.panel-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25) !important;
 }
 
 .panel-title {
@@ -18,6 +26,8 @@ body {
   font-weight: 700 !important;
   color: #00e5ff !important;
   letter-spacing: 0.5px;
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+  transition: color 0.3s ease;
 }
 
 /* ========= Value / Stat 模組（側邊顯示重點數據）========= */
@@ -30,7 +40,15 @@ body {
   font-size: 54px !important;
   font-weight: 900 !important;
   color: #00ffc8 !important;
-  text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+  text-shadow: 0 0 15px rgba(0, 255, 200, 0.4);
+  transition: all 0.3s ease;
+}
+
+.panel-content .value-panel:hover .value,
+.panel-content .stat-panel-value:hover .value,
+.panel-content .panel-value:hover .value {
+  transform: scale(1.05);
+  text-shadow: 0 0 20px rgba(0, 255, 200, 0.6);
 }
 
 .panel-content .value-panel .panel-title,
@@ -39,36 +57,62 @@ body {
   font-size: 20px !important;
   font-weight: 600 !important;
   color: #ccc !important;
+  transition: color 0.3s ease;
 }
 
-/* ========= 表格字體 ========= */
-.table-panel-table,
+/* ========= 表格樣式優化 ========= */
+.table-panel-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
 .table-panel-table td,
 .table-panel-table th {
   font-size: 17px !important;
   color: #eee !important;
   font-weight: 500;
+  padding: 12px 15px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: background-color 0.3s ease;
 }
 
-/* ========= 圓餅圖圖例文字（稍小一點）========= */
+.table-panel-table th {
+  background-color: rgba(0, 229, 255, 0.1) !important;
+  font-weight: 600 !important;
+}
+
+.table-panel-table tr:hover td {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* ========= 圓餅圖圖例文字優化 ========= */
 .pie-chart-legend__item__value,
 .pie-chart-legend__item__label {
   font-size: 15px !important;
   font-weight: 500 !important;
   color: #fff !important;
+  transition: all 0.2s ease;
 }
 
-/* ========= Tooltip 樣式 ========= */
+.pie-chart-legend__item:hover {
+  transform: translateX(5px);
+}
+
+/* ========= Tooltip 樣式優化 ========= */
 .tooltip,
 .graph-tooltip {
   font-size: 16px !important;
-  background-color: rgba(0, 0, 0, 0.85) !important;
+  background-color: rgba(28, 42, 58, 0.95) !important;
   color: #fff !important;
-  border-radius: 6px;
-  padding: 8px;
+  border-radius: 8px;
+  padding: 10px 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* ========= 時間序列圖的 Y 軸、圖例、刻度文字 ========= */
+/* ========= 時間序列圖優化 ========= */
 .axis text,
 .tick text,
 .graph-legend .legend-series-label,
@@ -76,12 +120,88 @@ body {
 .graph-tooltip .graph-tooltip__series-name {
   font-size: 16px !important;
   color: #f0f0f0 !important;
+  transition: color 0.3s ease;
 }
 
-/* ========= Legend 說明（右側或下方圖表說明） ========= */
+.axis line,
+.axis path {
+  stroke: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* ========= Legend 說明優化 ========= */
 .legend-series-label,
 .graph-legend .legend-series-item__label {
   font-size: 16px !important;
   color: #ccc !important;
   font-weight: 500 !important;
+  transition: all 0.2s ease;
+}
+
+.legend-series-item:hover .legend-series-item__label {
+  color: #fff !important;
+  transform: translateX(3px);
+}
+
+/* ========= 滾動條美化 ========= */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ========= 響應式設計優化 ========= */
+@media screen and (max-width: 768px) {
+  .panel-title {
+    font-size: 20px !important;
+  }
+  
+  .panel-content .value-panel .value,
+  .panel-content .stat-panel-value .value,
+  .panel-content .panel-value .value {
+    font-size: 42px !important;
+  }
+  
+  .table-panel-table td,
+  .table-panel-table th {
+    font-size: 15px !important;
+    padding: 8px 10px !important;
+  }
+}
+
+/* ========= 圖表互動效果 ========= */
+.graph-panel__chart {
+  transition: all 0.3s ease;
+}
+
+.graph-panel__chart:hover {
+  transform: scale(1.01);
+}
+
+/* ========= 儀表板網格優化 ========= */
+.dashboard-container {
+  gap: 15px !important;
+  padding: 15px !important;
+}
+
+/* ========= Loading 動畫優化 ========= */
+.panel-loading {
+  background: linear-gradient(45deg, #1c2a3a, #0f1c2e) !important;
+}
+
+.panel-loading:before {
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.2), transparent) !important;
 }
