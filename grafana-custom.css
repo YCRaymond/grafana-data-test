@@ -1,199 +1,38 @@
-/* ========= 全站背景與字體 ========= */
-body {
-  background: linear-gradient(135deg, #0f1c2e 0%, #1a2940 100%) !important;
-  font-family: 'Poppins', 'Quicksand', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif !important;
-  color: #f0f0f0 !important;
-  transition: all 0.4s ease;
-}
-
-/* ========= 漸變色彩定義 ========= */
-:root {
-  --primary-gradient: linear-gradient(45deg, #00e5ff, #00ffc8);
-  --secondary-gradient: linear-gradient(45deg, #7e57c2, #5c6bc0);
-  --accent-gradient: linear-gradient(45deg, #ff4081, #ff9100);
-  --hover-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* ========= 全局動畫效果 ========= */
-.dashboard-container {
-  gap: 25px !important;
-  padding: 25px !important;
-  transition: var(--hover-transition);
-}
-
-.react-grid-layout {
-  margin: -5px !important;
-}
-
-.react-grid-item {
-  padding: 5px !important;
-}
-
-.dashboard-container:hover > div:not(:hover) {
-  opacity: 0.75;
-  transform: scale(0.98);
-}
-
-/* ========= 面板容器背景與標題 ========= */
-.panel-container {
-  background: linear-gradient(180deg, #1c2a3a, #1a2735) !important;
-  border-radius: 20px !important;
-  padding: 22px !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: var(--hover-transition);
-  position: relative;
-  overflow: hidden;
-  transform-origin: center;
-  will-change: transform, opacity, box-shadow;
-}
-
-.panel-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: 0.6s;
-}
-
-.panel-container:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25) !important;
-  z-index: 1;
-}
-
-.panel-container:hover::before {
-  left: 100%;
-}
-
-.panel-content {
-  background-color: transparent !important;
-  border-radius: 16px !important;
-  padding: 18px !important;
-  transition: var(--hover-transition);
-}
-
-.panel-title {
-  font-family: 'Space Grotesk', 'Poppins', sans-serif !important;
-  font-size: 32px !important;
-  font-weight: 700 !important;
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: 0.5px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  transition: var(--hover-transition);
-  transform-origin: left;
-  margin-bottom: 15px !important;
-}
-
-.panel-container:hover .panel-title {
-  transform: translateX(5px) scale(1.05);
-  letter-spacing: 1px;
-}
-
-/* ========= Value / Stat 模組 ========= */
-.panel-content .value-panel,
-.panel-content .stat-panel-value,
-.panel-content .panel-value {
-  position: relative;
-  padding: 25px !important;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  transition: var(--hover-transition);
-  transform-origin: center;
-}
-
-.panel-content .value-panel .value,
-.panel-content .stat-panel-value .value,
-.panel-content .panel-value .value {
-  font-family: 'Outfit', 'Inter', sans-serif !important;
-  font-size: 72px !important;
-  line-height: 1.2 !important;
-  font-weight: 900 !important;
-  background: var(--secondary-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-  transition: var(--hover-transition);
-}
-
-.panel-content .value-panel:hover,
-.panel-content .stat-panel-value:hover,
-.panel-content .panel-value:hover {
-  background: rgba(255, 255, 255, 0.08);
-  transform: scale(1.05);
-}
-
-.panel-content .value-panel .panel-title,
-.panel-content .stat-panel-value .panel-title,
-.panel-content .panel-value .panel-title {
-  font-family: 'DM Sans', 'Inter', sans-serif !important;
-  font-size: 24px !important;
-  font-weight: 600 !important;
-  color: rgba(255, 255, 255, 0.85) !important;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 10px !important;
-}
-
-/* ========= 表格樣式優化 ========= */
-.table-panel-table {
-  border-collapse: separate;
-  border-spacing: 0;
-  width: 100%;
-}
-
-.table-panel-table td,
-.table-panel-table th {
-  font-family: 'Inter', 'DM Sans', sans-serif !important;
-  font-size: 19px !important;
-  color: #eee !important;
-  padding: 16px 20px !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-  transition: var(--hover-transition);
-}
-
-.table-panel-table th {
-  background: linear-gradient(180deg, rgba(0, 229, 255, 0.08), rgba(0, 255, 200, 0.08)) !important;
-  font-weight: 600 !important;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+/* ========= 圓餅圖樣式優化 ========= */
+.pie-chart text {
   font-size: 20px !important;
+  font-weight: 500 !important;
+  fill: rgba(255, 255, 255, 0.9) !important;
 }
 
-.table-panel-table tr:hover td {
-  background-color: rgba(255, 255, 255, 0.08) !important;
-  transform: scale(1.01);
-  padding-left: 25px !important;
+.pie-chart-wrapper {
+  margin: 20px !important;
 }
 
-/* ========= 圓餅圖圖例優化 ========= */
 .pie-chart-legend {
-  padding: 15px !important;
+  padding: 20px !important;
 }
 
 .pie-chart-legend__item {
   transition: var(--hover-transition);
-  padding: 10px 15px !important;
+  padding: 12px 18px !important;
   border-radius: 8px;
   cursor: pointer;
-  margin: 5px 0 !important;
+  margin: 8px 0 !important;
 }
 
 .pie-chart-legend__item__value,
 .pie-chart-legend__item__label {
   font-family: 'DM Sans', 'Inter', sans-serif !important;
-  font-size: 18px !important;
+  font-size: 22px !important;
   font-weight: 500 !important;
   color: rgba(255, 255, 255, 0.9) !important;
   transition: var(--hover-transition);
+}
+
+.pie-chart-legend__item__value {
+  font-weight: 600 !important;
+  margin-left: 12px !important;
 }
 
 .pie-chart-legend__item:hover {
@@ -201,171 +40,151 @@ body {
   transform: translateX(8px);
 }
 
-/* ========= Tooltip 樣式優化 ========= */
-.tooltip,
-.graph-tooltip {
-  font-family: 'Inter', 'DM Sans', sans-serif !important;
-  font-size: 18px !important;
-  background: linear-gradient(135deg, rgba(28, 42, 58, 0.95), rgba(15, 28, 46, 0.95)) !important;
-  color: #fff !important;
-  border-radius: 12px;
-  padding: 15px 18px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  animation: tooltipFade 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* ========= 時間序列圖優化 ========= */
+/* ========= 長條圖和時間序列圖優化 ========= */
 .axis text,
 .tick text {
   font-family: 'IBM Plex Mono', 'Roboto Mono', monospace !important;
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  transition: var(--hover-transition);
+}
+
+.axis-label {
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  fill: rgba(255, 255, 255, 0.95) !important;
+}
+
+.bar-chart text,
+.graph-panel text {
+  font-size: 20px !important;
+  font-weight: 500 !important;
+}
+
+.graph-legend {
+  padding: 15px !important;
+}
+
+.graph-legend-table {
+  margin-top: 15px !important;
+}
+
+.graph-legend-series {
+  padding: 8px 12px !important;
+}
+
+.graph-legend-alias {
+  font-size: 20px !important;
+  padding: 5px 0 !important;
+}
+
+.graph-legend-value {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* ========= 數據標籤優化 ========= */
+.datapoint-label {
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  fill: rgba(255, 255, 255, 0.95) !important;
+}
+
+.graph-annotation__label {
+  font-size: 20px !important;
+  padding: 10px 15px !important;
+  border-radius: 8px !important;
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+/* ========= Tooltip 優化 ========= */
+.graph-tooltip {
+  font-size: 20px !important;
+  padding: 15px 20px !important;
+}
+
+.graph-tooltip-time {
   font-size: 18px !important;
   color: rgba(255, 255, 255, 0.8) !important;
-  transition: var(--hover-transition);
+}
+
+.graph-tooltip-value {
+  font-size: 22px !important;
+  font-weight: 600 !important;
+}
+
+/* ========= 圖表標記和刻度優化 ========= */
+.flot-text,
+.flot-tick-label {
+  font-size: 20px !important;
+  font-weight: 500 !important;
 }
 
 .axis line,
 .axis path {
-  stroke: rgba(255, 255, 255, 0.15) !important;
+  stroke: rgba(255, 255, 255, 0.2) !important;
   stroke-width: 1.5px !important;
 }
 
-.graph-panel__chart {
-  transition: var(--hover-transition);
-  margin: 15px !important;
+.grid-line {
+  stroke: rgba(255, 255, 255, 0.1) !important;
+  stroke-width: 1px !important;
 }
 
-.graph-panel__chart:hover {
-  transform: scale(1.02);
-  filter: brightness(1.1);
-}
-
-/* ========= Legend 說明優化 ========= */
-.legend-section {
-  padding: 15px !important;
-}
-
+/* ========= 圖例說明優化 ========= */
 .legend-series-label,
 .graph-legend .legend-series-item__label {
   font-family: 'DM Sans', 'Inter', sans-serif !important;
-  font-size: 18px !important;
-  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 20px !important;
+  color: rgba(255, 255, 255, 0.9) !important;
   font-weight: 500 !important;
   transition: var(--hover-transition);
 }
 
 .legend-series-item {
-  padding: 8px 12px !important;
+  padding: 10px 15px !important;
   border-radius: 8px;
-  margin: 4px 0 !important;
+  margin: 6px 0 !important;
   transition: var(--hover-transition);
 }
 
-.legend-series-item:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.legend-series-item:hover .legend-series-item__label {
-  color: #fff !important;
-  transform: translateX(5px);
-}
-
-/* ========= 滾動條美化 ========= */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, 
-    rgba(0, 229, 255, 0.1),
-    rgba(0, 255, 200, 0.1)
-  );
-  border-radius: 4px;
-  transition: var(--hover-transition);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, 
-    rgba(0, 229, 255, 0.2),
-    rgba(0, 255, 200, 0.2)
-  );
-}
-
-/* ========= 警告和錯誤狀態優化 ========= */
-.alert-error,
-.alert-warning,
-.alert-success {
-  font-family: 'Inter', 'DM Sans', sans-serif !important;
-  font-size: 18px !important;
-  border-radius: 10px;
-  padding: 15px 20px;
-  margin: 10px 0;
-}
-
-/* ========= 按鈕和控制項優化 ========= */
-.btn,
-.gf-form-input,
-.gf-form-select-box {
-  font-family: 'Inter', 'DM Sans', sans-serif !important;
-  font-size: 18px !important;
-  border-radius: 10px !important;
-  padding: 10px 18px !important;
-}
-
-/* ========= 數據標籤優化 ========= */
-.graph-annotation__label {
-  font-size: 18px !important;
-  padding: 8px 12px !important;
-  border-radius: 8px !important;
-}
-
-/* ========= 圖表標記優化 ========= */
-.flot-text {
-  font-size: 18px !important;
-}
-
-.graph-annotation {
-  font-size: 18px !important;
-}
-
-/* ========= 時間選擇器優化 ========= */
-.gf-form-select-box__input input {
-  font-size: 18px !important;
-}
-
-.gf-form-input {
-  height: 40px !important;
-  line-height: 40px !important;
+.legend-value {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  margin-left: 10px !important;
 }
 
 /* ========= 響應式設計優化 ========= */
 @media screen and (max-width: 1600px) {
-  .panel-title {
-    font-size: 28px !important;
+  .pie-chart text,
+  .axis text,
+  .tick text,
+  .legend-series-label,
+  .graph-legend .legend-series-item__label {
+    font-size: 18px !important;
   }
   
-  .panel-content .value-panel .value,
-  .panel-content .stat-panel-value .value,
-  .panel-content .panel-value .value {
-    font-size: 64px !important;
+  .pie-chart-legend__item__value,
+  .pie-chart-legend__item__label,
+  .graph-tooltip-value {
+    font-size: 20px !important;
   }
 }
 
 @media screen and (max-width: 1200px) {
-  .panel-title {
-    font-size: 24px !important;
+  .pie-chart text,
+  .axis text,
+  .tick text,
+  .legend-series-label,
+  .graph-legend .legend-series-item__label {
+    font-size: 16px !important;
   }
   
-  .panel-content .value-panel .value,
-  .panel-content .stat-panel-value .value,
-  .panel-content .panel-value .value {
-    font-size: 56px !important;
+  .pie-chart-legend__item__value,
+  .pie-chart-legend__item__label,
+  .graph-tooltip-value {
+    font-size: 18px !important;
   }
 }
